@@ -43,10 +43,10 @@ figure {
 }
 
 .header {
-  font-family: var(--accent-font);
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 90%;
+  /* font-family: var(--accent-font, serif); */
+  /* font-size: 60px; */
+  /* font-weight: 600; */
+  /* line-height: 90%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,12 +56,8 @@ figure {
 .header__logo {}
 
 .heading {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, serif);
   font-weight: 600;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   line-height: 90%;
 }
@@ -157,23 +153,17 @@ figure {
 
 .content__paragraph {}
 
-.content__text-block .content__paragraph {
+.content__text-block .content__paragraph:not(:last-of-type) {
   margin-bottom: 1.5em;
-}
-
-.content__text-block.content__paragraph:last-child {
-  margin-bottom: 0;
 }
 
 .content__text-block_type_first-lettered .content__paragraph:first-of-type::first-letter {
   background-color: var(--accent-color);
-  font-size: 25px;
+  font-size: 30px;
   padding: 0 4px;
-  min-width: 27px;
-  min-height: 33px;
-  margin-right: 4px;
+  margin-inline-end: 1px;
   display: inline-block;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .theme_dark .content__text-block_type_first-lettered .content__paragraph:first-of-type::first-letter {
@@ -251,15 +241,16 @@ figure {
 
 .content__li::before {
   content: '';
-  width: 15px;
-  height: 15px;
+  inline-size: 15px;
+  block-size: 15px;
   background-image: url('../images/marker-light.svg');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
-  left: -20px;
-  top: 7px;
+  inset-block-start: 50%;
+  inset-inline-start: -25px;
+  margin-block-start: -7.5px;
   z-index: 1;
 }
 
@@ -277,10 +268,10 @@ figure {
 }
 
 .content__figure {
-  margin: 0 7%;
-  width: calc(100% + 14%);
+  margin: 7% auto;
+  width: calc(100% + 10vi);
   position: relative;
-  left: -14%;
+  inset-inline-end: 5vi;
 }
 
 .content__picture-caption {
